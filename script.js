@@ -18,10 +18,38 @@ let menu = [
 // Menu facts transcribed from the supplied printed menu. Items not present in
 // that source still get a details view using their existing card description.
 const productDetails={
+  'Avacado Toast with Poached Eggs':{ingredients:['Sourdough bread','2 eggs','Mashed avocado','Cherry tomatoes','Lettuce','Radish','Labneh cheese','Black pepper','Table salt']},
+  'Avacado Toast with Salmon':{ingredients:['Sourdough bread','Smoked salmon','Mashed avocado','Cherry tomatoes','Cucumber','Lettuce','Radish','Black pepper','Sesame seeds','Table salt']},
+  'Avacado Toast with Green Olives':{ingredients:['Sourdough bread','Green olives','Mashed avocado','Cherry tomatoes','Lettuce','Radish','Labneh cheese','Black pepper','Sesame seeds','Table salt']},
+  'Acai Bowl':{ingredients:['Acai puree','Banana','Berries','Homemade granola','Chia seeds','Peanut butter']},
+  'Blue Crash Bowl':{ingredients:['Greek yogurt','Blue spirulina','Mango','Homemade granola','Banana','Berries','Maple syrup']},
+  'Mystic Matcha Bowl':{ingredients:['Greek yogurt','Blue spirulina','Blue matcha','Mango','Berries','Avocado','Cucumber','Homemade granola']},
+  'Green Dream Bowl':{ingredients:['Greek yogurt','Moringa','Green spirulina','Kiwi','Banana','Mango','Homemade granola','Apricot','Beetroot','Toasted almond','Berries']},
+  'Detox Me Later Glow Bowl':{ingredients:['Greek yogurt','Pink matcha','Banana','Mango','Dragon fruit','Berries','Pomegranate','Homemade granola']},
+  'Tropical Glow Bowl':{ingredients:['Greek yogurt','Avocado','Mango','Banana','Homemade granola','Pineapple','Berries','Pistachio']},
+  'Watermelon Feta':{ingredients:['Watermelon','Feta cheese','Lemon','Chia seeds']},
+  'Blood Sugar Level':{ingredients:['Chickpeas','Cucumber','Cherry tomatoes','Avocado','Green olives','Radish','Green onions','Parsley','Black pepper','Olive oil','Lemon juice','Table salt']},
+  'Chicken Ceasar':{ingredients:['Lettuce','Grilled chicken','Avocado','Cherry tomatoes','Croutons','Parmesan cheese']},
+  'Colon Cleaning':{ingredients:['Carrot','Beetroot','Cabbage','Red apple','Table salt','Lemon juice']},
+  'Flat Stomach':{ingredients:['Red cabbage','Green peas','Cucumber','Parsley','Green onion','Black pepper','Lemon juice','Table salt']},
+  'Tabbouloleh Salad':{ingredients:['Bulgur wheat','Cherry tomatoes','Cucumber','Red onions','Parsley','Green onion']},
+  'Triple Berries Salad':{ingredients:['Baby spinach','Homemade granola','Berries','Feta cheese']},
+  'Nutella Pancake':{ingredients:['Greek yogurt cream']},
+  'Berries Pancake':{ingredients:['Greek yogurt cream']},
+  'Classic Pancake':{ingredients:['Greek yogurt cream']},
+  'French Toast':{ingredients:['Greek yogurt cream']},
+  'Pistachio Pancake':{ingredients:['Greek yogurt cream']},
+  'Power Protein':{ingredients:['Acai puree','Blueberries','Cherry','Banana','Beetroot','Whey protein powder']},
+  'Protein Shakes:Build Your Own':{ingredients:['Type in the comment area your choice of three selected fruits, protein powder, and milk']},
+  'Fignuts':{ingredients:['Figs','Cashew nuts','Raisins']},
+  'Walnana':{ingredients:['Banana','Walnuts','Raisins','Apricot','Oat','Thin layer of chocolate']},
+  'Nutri Tropix':{ingredients:['Coconut','Pineapple','Cashew nuts','Apricots','Dates']},
+  'Nutty Date Delight Ball':{ingredients:['Almond','Dates','Thin layer of chocolate']},
+  'Smoothies:Build Your Own':{ingredients:['Type in the comment area your choice of three selected fruits']},
   'Mochaccino':{price:26,ingredients:['Single shot espresso','Chocolate','Steamed milk and froth'],size:'8 oz'},
   'V60':{price:29,ingredients:['Coffee origin'],size:'8 oz'},
-  'Tea Selections':{price:20,ingredients:['Earl Grey','Camomile','English Breakfast','Green Tea with Mint','Green Tea with Jasmine']},
-  'Tisane Tea':{price:20,ingredients:['Ginger','Fresh lemon juice','Honey','Hot water']},
+  'Tea Selections':{price:20,ingredients:['Green tea with mint','Green tea with jasmine','Camomile tea','English breakfast tea','Earl Grey tea']},
+  'Tisane Tea':{name:'Ginger Tisane Tea',price:20,ingredients:['Ginger','Lemon juice','Honey']},
   'Hot Matcha Latte':{price:26,ingredients:['Matcha green tea','Steamed milk and froth']},
   'Iced V60':{price:29,ingredients:['Coffee origin','Ice cubes'],size:'14 oz'},
   'Cold Drip Coffee':{price:29,ingredients:['Slow-dripped cold coffee']},
@@ -45,12 +73,12 @@ const productDetails={
   'PB & J':{price:38,ingredients:['Strawberry','Raspberry','Banana','Granola','Peanut butter','Beetroot','Whey protein','Milk'],protein:'35g',carbohydrates:'64g',calories:'455 kcal'},
   'Cookies & Cream':{price:38,ingredients:['Chocolate','Banana','Granola','Peanut butter','Whey protein','Cocoa powder','Milk'],protein:'35g',carbohydrates:'74g',calories:'461 kcal'},
   'Rumble in the Jungle':{price:38,ingredients:['Avocado','Broccoli','Baby spinach','Kale','Banana','Whey','Milk'],protein:'31g',carbohydrates:'46g',calories:'378 kcal'},
-  'Energy Booster':{price:32,ingredients:['Acai puree','Blueberry','Banana','Beetroot','Peanut butter','Apple juice'],protein:'30g',carbohydrates:'57g',calories:'355 kcal'},
+  'Energy Booster':{price:32,ingredients:['Cherry fruit']},
   'Srawberry Fusin':{name:'Strawberry Fusion',price:32,ingredients:['Strawberry','Mango','Raspberry','Banana','Beetroot','Apple juice'],protein:'35g',carbohydrates:'74g',calories:'461 kcal'},
   'Mango Mania':{price:32,ingredients:['Mango','Pineapple','Peach','Apple juice'],protein:'31g',carbohydrates:'46g',calories:'378 kcal'},
   'Pina Colada':{price:32,ingredients:['Pineapple','Coconut','Banana','Apple juice'],protein:'31g',carbohydrates:'46g',calories:'378 kcal'},
   'Green Machine':{price:32,ingredients:['Kale','Broccoli','Baby spinach','Banana','Pineapple','Avocado','Apple juice'],protein:'35g',carbohydrates:'64g',calories:'455 kcal'},
-  'Rubby Antioxidant Blend':{name:'Rubby Antioxidant Blend',price:32,ingredients:['Activated charcoal','Blackberry','Blueberry','Cherry fruit','Blackcurrant','Beetroot','Apple juice'],protein:'34g',carbohydrates:'85g',calories:'463 kcal'},
+  'Rubby Antioxidant Blend':{name:'Rubby Antioxidant Blend',price:32,ingredients:['Prunes','Activated charcoal','Blueberry','Blackberry','Blackcurrant','Beetroot','Cherry fruit','Apple juice'],protein:'2g',carbohydrates:'35g',calories:'137 kcal'},
   'Orange':{price:20,ingredients:['Fresh orange juice'],protein:'2g',carbohydrates:'26g',calories:'168 kcal'},
   'Green Apple':{price:20,ingredients:['Fresh green apple juice'],protein:'2g',carbohydrates:'52g',calories:'175 kcal'},
   'Carrot':{price:20,ingredients:['Fresh carrot juice'],protein:'2g',carbohydrates:'23g',calories:'103 kcal'},
@@ -70,7 +98,7 @@ const productDetails={
 };
 
 menu.forEach(category=>category.items.forEach(item=>{
-  const details=productDetails[item[0]]||{};
+  const details=productDetails[`${category.category}:${item[0]}`]||productDetails[item[0]]||{};
   item[5]={ingredients:details.ingredients||[item[1]],size:details.size,protein:details.protein,carbohydrates:details.carbohydrates,calories:details.calories};
   if(details.price)item[2]=details.price;
   if(details.name)item[0]=details.name;
@@ -114,8 +142,9 @@ categories.addEventListener('scroll',updateCategoryArrows,{passive:true});addEve
 const content=document.querySelector('.menu-content');
 const renderMenuCard=(item,categoryIndex,itemIndex)=>{
   const category=menu[categoryIndex],isFullCustomDrink=['hot-beverages','ice-beverages'].includes(category.slug),isProteinShake=item[6]==='Protein Shakes',customizeMode=isProteinShake?'milk-only':isFullCustomDrink?'full':'';
+  const detailsPreview=(item[5]?.ingredients||[item[1]]).join(', ');
   const controls=customizeMode?`<button class="view-details" data-category-index="${categoryIndex}" data-item-index="${itemIndex}">Details <span aria-hidden="true">↗</span></button><button class="customize-product" data-product="${item[0]}" data-customize-mode="${customizeMode}"><span aria-hidden="true">⚙</span> Customize</button>`:`<button class="view-details" data-category-index="${categoryIndex}" data-item-index="${itemIndex}">Details <span aria-hidden="true">↗</span></button><button class="comment-product" data-product="${item[0]}"><span aria-hidden="true">💬</span> Comment</button>`;
-  return `<div class="menu-card${customizeMode?' customizable-card':''}" role="button" tabindex="0" aria-label="View details for ${item[0]}" data-category-index="${categoryIndex}" data-item-index="${itemIndex}"><div class="menu-img"><img src="${item[3]}" alt="${item[0]}" loading="lazy">${item[4]?`<span>${item[4]}</span>`:''}</div><div class="menu-card-info"><div class="product-summary"><h4>${item[0]}</h4><div class="product-controls">${controls}</div></div><div class="menu-card-actions"><strong>AED ${item[2]}</strong><button class="add-cart" data-name="${item[0]}" data-price="${item[2]}" data-image="${item[3]}">Add +</button></div></div></div>`;
+  return `<div class="menu-card${customizeMode?' customizable-card':''}" role="button" tabindex="0" aria-label="View details for ${item[0]}" data-category-index="${categoryIndex}" data-item-index="${itemIndex}"><div class="menu-img"><img src="${item[3]}" alt="${item[0]}" loading="lazy">${item[4]?`<span>${item[4]}</span>`:''}</div><div class="menu-card-info"><div class="product-summary"><h4>${item[0]}</h4><p class="product-details-preview">${detailsPreview}</p><div class="product-controls">${controls}</div></div><div class="menu-card-actions"><strong>AED ${item[2]}</strong><button class="add-cart" data-name="${item[0]}" data-price="${item[2]}" data-image="${item[3]}">Add +</button></div></div></div>`;
 };
 content.innerHTML=menu.map((category,categoryIndex)=>{
   const columns=[...new Set(category.items.map(item=>item[6]))];
