@@ -289,6 +289,21 @@ document.querySelectorAll('.reveal,.menu-card,.category-title,.editorial').forEa
 if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelectorAll('video[autoplay]').forEach(video=>video.pause());
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches)addEventListener('scroll',()=>{document.querySelector('.hero-media').style.transform=`translateY(${scrollY*.12}px) scale(1.06)`},{passive:true});
 
+// Play the uploaded hero video on its original timeline. Restart it only once
+// the opening loader has cleared so the customer sees the complete beginning.
+const heroVideo=document.querySelector('.hero-media');
+const heroLoader=document.querySelector('.loader');
+const startHeroVideoFromBeginning=()=>{
+  if(!heroVideo||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  heroVideo.defaultPlaybackRate=1;
+  heroVideo.playbackRate=1;
+  heroVideo.currentTime=0;
+  heroVideo.play().catch(()=>{});
+};
+if(heroLoader)heroLoader.addEventListener('animationend',startHeroVideoFromBeginning,{once:true});
+else if(heroVideo?.readyState>=1)startHeroVideoFromBeginning();
+else heroVideo?.addEventListener('loadedmetadata',startHeroVideoFromBeginning,{once:true});
+
 const booking=document.querySelector('.booking');document.querySelectorAll('[data-book]').forEach(b=>b.addEventListener('click',()=>booking.showModal()));
 document.querySelectorAll('.dialog-close').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
 booking.querySelector('form').addEventListener('submit',e=>{e.preventDefault();booking.querySelector('.form-note').textContent='Thanks — we’ll call shortly to confirm your table.';e.target.querySelector('button[type=submit]').textContent='Request received ✓';});
